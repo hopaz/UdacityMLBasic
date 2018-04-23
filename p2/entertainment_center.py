@@ -1,22 +1,19 @@
 import media
 import fresh_tomatoes
 
-toy_story = media.Movie("Toy Story", "A story of a boy and his toys that come to life","http://movie.mtime.com/12058/posters_and_images/254592/","https://www.youtube.com/watch?v=5bMDPpxNbys")
-# print(toy_story.storyline)
+# implement my favourate movies
+ready_player_one = media.Movie("Ready Player One", "Story about virtual reality game in 2045","https://img1.doubanio.com/view/photo/raw/public/p2516499649.jpg","https://www.youtube.com/watch?v=cSp1dM2Vj48")
 
-avatar = media.Movie("Avatar", "A marine on an alien planet", "https://upload.wikimedia.org/wikipedia/id/b/b0/Avatar-Teaser-Poster.jpg", "https://www.youtube.com/watch?v=d1_JBMrrYw8")
-# print(avatar.storyline)
+interstellar = media.Movie("Interstellar", "Dystopian future where humanity is struggling to survive", "https://img3.doubanio.com/view/photo/raw/public/p2206088801.jpg", "https://www.youtube.com/watch?v=zSWdZVtXT7E")
 
-flipped = media.Movie("Flipped", "Beautiful love story of gilr and boy", "http://huaban.com/pins/161970014/", "https://www.youtube.com/watch?v=cSxJTxSKHpw")
-# print(flipped.storyline)
-# flipped.show_trailer()
-school_of_rock = media.Movie("School of Rock", "Using rock music to learn", "https://en.wikipedia.org/wiki/School_of_Rock#/media/File:School_of_Rock_Poster.jpg","https://www.youtube.com/watch?v=yMvpJDbWX_c")
+flipped = media.Movie("Flipped", "Beautiful love story of gilr and boy", "https://img3.doubanio.com/view/photo/raw/public/p663036666.jpg", "https://www.youtube.com/watch?v=cSxJTxSKHpw")
 
-ratatouille = media.Movie("Ratatouille", "A rat is a chef in Paris", "https://en.wikipedia.org/wiki/Ratatouille#/media/File:Ratatouille.jpg","https://www.youtube.com/watch?v=KSVKF0o2kfg")
+blade_runner_2049 = media.Movie("Blade Runner 2049", "Gosling plays K, a blade runner uncovers a secret between humans and replicants", "https://img1.doubanio.com/view/photo/raw/public/p2501864539.jpg","https://www.youtube.com/watch?v=gCcx85zbxz4")
 
-midnight_in_paris = media.Movie("Midnight in Paris", "Going back in time to meet authors", "https://en.wikipedia.org/wiki/Midnight_in_Paris#/media/File:Midnight_in_Paris_Poster.jpg","https://www.youtube.com/watch?v=FAfR8omt-CY")
+three_idiots = media.Movie("3 idiots", "The film is about the friendship of three students at an Indian engineering college", "https://img3.doubanio.com/view/photo/raw/public/p579729551.jpg","https://www.youtube.com/watch?v=xvszmNXdM4w")
 
-hunger_games = media.Movie("Hunger games", "A really real reality show", "http://www.mask9.com/node/137139", "https://www.youtube.com/watch?v=mfmrPu43DF8")
+hunger_games = media.Movie("Hunger games", "A really real reality show", "https://img3.doubanio.com/view/photo/raw/public/p1460591675.jpg", "https://www.youtube.com/watch?v=mfmrPu43DF8")
 
-movies = [toy_story, avatar, school_of_rock, ratatouille, midnight_in_paris, hunger_games]
+# add moviews to list and open static html
+movies = [ready_player_one, interstellar, flipped, blade_runner_2049, three_idiots, hunger_games]
 fresh_tomatoes.open_movies_page(movies)

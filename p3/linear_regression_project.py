@@ -14,7 +14,7 @@
 # [2 Gaussian Jordan 消元法](#2-Gaussian-Jordan-消元法)  
 # [3  线性回归](#3-线性回归)  
 
-# In[1]:
+# In[32]:
 
 
 # 任意选一个你喜欢的整数，这能帮你得到稳定的结果
@@ -55,7 +55,7 @@ I = [[1,0,0,0],
 
 # ## 1.2 返回矩阵的行数和列数
 
-# In[3]:
+# In[47]:
 
 
 # TODO 返回矩阵的行数和列数
@@ -77,21 +77,18 @@ get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_shape')
 
 # ## 1.3 每个元素四舍五入到特定小数数位
 
-# In[5]:
+# In[46]:
 
 
 # TODO 每个元素四舍五入到特定小数数位
 # 直接修改参数矩阵，无返回值
 def matxRound(M, decPts=4):
-    for i in M:
-        if isinstance(i, list):
-            for j in i:
-                j = round(j, decPts)
-        else:
-            i = round(i, decPts)
+    for i in range(0,len(M)):
+        for j in range(len(M[0])):
+            M[i][j] = round(M[i][j], decPts)
 
 
-# In[6]:
+# In[8]:
 
 
 # 运行以下代码测试你的 matxRound 函数
@@ -100,7 +97,7 @@ get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_matxRound'
 
 # ## 1.4 计算矩阵的转置
 
-# In[7]:
+# In[45]:
 
 
 # TODO 计算矩阵的转置
@@ -117,7 +114,7 @@ get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_transpose'
 
 # ## 1.5 计算矩阵乘法 AB
 
-# In[9]:
+# In[44]:
 
 
 # TODO 计算矩阵乘法 AB，如果无法相乘则raise ValueError
@@ -147,7 +144,7 @@ def matxMultiply(A, B):
     
 
 
-# In[10]:
+# In[43]:
 
 
 # 运行以下代码测试你的 matxMultiply 函数
@@ -181,7 +178,7 @@ get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_matxMultip
 #     ...    & ... & ... & ...& ...\\
 #     a_{n1}    & a_{n2} & ... & a_{nn} & b_{n} \end{bmatrix}$
 
-# In[11]:
+# In[40]:
 
 
 # TODO 构造增广矩阵，假设A，b行数相同
@@ -190,7 +187,7 @@ def augmentMatrix(A, b):
     return Ab
 
 
-# In[12]:
+# In[41]:
 
 
 # 运行以下代码测试你的 augmentMatrix 函数
@@ -202,7 +199,7 @@ get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_augmentMat
 # - 把某行乘以一个非零常数
 # - 把某行加上另一行的若干倍：
 
-# In[13]:
+# In[20]:
 
 
 # TODO r1 <---> r2
@@ -211,14 +208,14 @@ def swapRows(M, r1, r2):
     M[r1],M[r2] = M[r2],M[r1]
 
 
-# In[14]:
+# In[21]:
 
 
 # 运行以下代码测试你的 swapRows 函数
 get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_swapRows')
 
 
-# In[15]:
+# In[22]:
 
 
 # TODO r1 <--- r1 * scale
@@ -235,14 +232,14 @@ def scaleRow(M, r, scale):
         raise e
 
 
-# In[16]:
+# In[23]:
 
 
 # 运行以下代码测试你的 scaleRow 函数
 get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_scaleRow')
 
 
-# In[17]:
+# In[39]:
 
 
 # TODO r1 <--- r1 + r2*scale
@@ -254,7 +251,7 @@ def addScaledRow(M, r1, r2, scale):
         M[r1][i] += scale * M[r2][i]
 
 
-# In[18]:
+# In[25]:
 
 
 # 运行以下代码测试你的 addScaledRow 函数
@@ -334,7 +331,7 @@ get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_addScaledR
 
 # #### 以下开始你的尝试吧!
 
-# In[19]:
+# In[14]:
 
 
 # 不要修改这里！
@@ -371,7 +368,7 @@ printInMatrixFormat(Ab,padding=3,truncating=0)
 #     
 # $...$
 
-# In[20]:
+# In[16]:
 
 
 # 不要修改这里！
@@ -421,8 +418,6 @@ printInMatrixFormat(Ab,padding=3,truncating=0)
     返回None，如果 A 为奇异矩阵
 """
 def gj_Solve(A, b, decPts=4, epsilon=1.0e-16):
-    A = [[1,2,3],[4,5,6],[7,8,9]]
-    b = [1,1,1]
     # 1.检查A，b是否行数相同
     if len(A) != len(b):
         return None
@@ -506,7 +501,7 @@ get_ipython().magic(u'run -i -e test.py LinearRegressionTestCase.test_gj_Solve')
 
 # ## 3.1 随机生成样本点
 
-# In[23]:
+# In[35]:
 
 
 # 不要修改这里！
@@ -521,7 +516,7 @@ vs_scatter_2d(X, Y)
 # 
 # ### 3.2.1 猜测一条直线
 
-# In[24]:
+# In[36]:
 
 
 #TODO 请选择最适合的直线 y = mx + b
@@ -539,7 +534,7 @@ vs_scatter_2d(X, Y, m1, b1)
 # MSE = \frac{1}{n}\sum_{i=1}^{n}{(y_i - mx_i - b)^2}
 # $$
 
-# In[25]:
+# In[37]:
 
 
 # TODO 实现以下函数并输出所选直线的MSE
@@ -664,7 +659,7 @@ print(calculateMSE2D(X,Y,m1,b1))
 # 
 # 在3.3 中，我们知道线性回归问题等价于求解 $X^TXh = X^TY$ (如果你选择不做3.3，就勇敢的相信吧，哈哈)
 
-# In[26]:
+# In[49]:
 
 
 # TODO 实现线性回归
@@ -673,13 +668,34 @@ print(calculateMSE2D(X,Y,m1,b1))
 返回：线性回归的系数(如上面所说的 m, b)
 '''
 def linearRegression2D(X,Y):
-    A = matxMultiply(transpose(X),X)
-    b = matxMultiply(transpose(X),Y)
     
+    # 一维数组X转矩阵，一维数组Y转矩阵
+    matxX = [[x, 1] for x in X]
+    matxY = [[y] for y in Y]
+    
+    # 获得 A 和 b
+    A = matxMultiply(transpose(matxX),matxX)
+    b = matxMultiply(transpose(matxX),matxY)
+    
+    # 高斯消元求解
     h = gj_Solve(A, b, decPts=4, epsilon=1.0e-16)
-    return h[0], h[1]
+
+    m, b = 0.0, 0.0
+
+    if not h:
+        return m, b
+
+    h_len = len(h)
+    if h_len > 0:
+        m = h[0][0]
+    if h_len > 1:
+        b = h[1][0]
+    return m, b
 
 m2,b2 = linearRegression2D(X,Y)
+assert isinstance(m2,float),"m is not a float"
+assert isinstance(b2,float),"b is not a float"
+print(m2,b2)
 
 
 # # 请不要修改下面的代码
@@ -691,7 +707,7 @@ m2,b2 = linearRegression2D(X,Y)
 # 你求得的回归结果是什么？
 # 请使用运行以下代码将它画出来。
 
-# In[27]:
+# In[50]:
 
 
 ## 请不要修改下面的代码
